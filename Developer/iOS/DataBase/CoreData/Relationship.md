@@ -74,7 +74,9 @@ NSError *savingError;
 if (![self.managedObjectContext save:&savingError])NSLog(@"Error saving: %@", savingError);
 ```
 
-Load from Core Data and Get Image
+###Load from Core Data and Get Image
+
+```objc
 //Get Core Data(TableView didSelectRowAtIndexPath)
 NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
 Album *album=(Album*)object;
@@ -100,17 +102,22 @@ for (i=0; i<countSortedPhotoArray; i++) {
     UIImage *image=[UIImage imageWithContentsOfFile:fullPath];
     [imgArray addObject:image];
 }
+```
 
+###Delete Album and Photo
 
-Delete Album and Photo
-In tableview method
-
+In tableview method  
+```objc
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
 atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
 newIndexPath:(NSIndexPath *)newIndexPath
+```  
 
-To delete album and photos just need to write this.
+To delete album and photos just need to write this.  
+```objc
 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-If you set right delete rule in your entity(Here's Cascade).
+```  
 
-When you delete album,all photos in that album will also delete.
+If you set right delete rule in your entity(Here's Cascade).  
+
+When you delete album,all photos in that album will also delete.  
