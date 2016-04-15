@@ -34,6 +34,7 @@ d3.tsv("letter.tsv", type, function (error, data) {
     chart.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0, " + height + ")")
+        .style("stroke-dasharray", ("10, 10"))
         .call(xAxis);
 
     /*
@@ -50,6 +51,7 @@ d3.tsv("letter.tsv", type, function (error, data) {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
+        .style("stroke-dasharray", ("10, 10"))
         .text("Frequency");
 
     chart.selectAll(".bar")

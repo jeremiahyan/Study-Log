@@ -68,7 +68,13 @@
   var area = d3.svg.area()
           .interpolate("monotone")
           .x(function(d) { return x(d.date); })
-          .y(function(d) { return x(d.price); });
+          .y0(height)
+          .y1(function(d) { return y(d.price); });
+
+  var line = d3.svg.line()
+          .interpolate("monotone")
+          .x(function(d) { return x(d.date); })
+          .y(function(d) { return y(d.price); });
 
   var svg = d3.select("body").append("svg")
           .attr("width", width + margin.left + margin.right)
