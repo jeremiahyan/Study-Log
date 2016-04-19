@@ -48,3 +48,6 @@ src/Clients/**/obj/*.*
 
 # idea
 .idea
+
+# Videos
+*.mp4
